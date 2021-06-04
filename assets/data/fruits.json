@@ -1,0 +1,77 @@
+[
+  {
+    "img": "fruits/apple.svg",
+    "en": "Apple",
+    "id": "Apel"
+  },
+  {
+    "img": "fruits/banana.svg",
+    "en": "Banana",
+    "id": "Pisang"
+  },
+  {
+    "img": "fruits/orange.svg",
+    "en": "Orange",
+    "id": "Jeruk"
+  },
+  {
+    "img": "fruits/watermelon.svg",
+    "en": "Watermelon",
+    "id": "Semangka"
+  },
+  {
+    "img": "fruits/strawberry.svg",
+    "en": "Strawberry",
+    "id": "Stroberi"
+  },
+  {
+    "img": "fruits/pineapple.svg",
+    "en": "Pineapple",
+    "id": "Nanas"
+  },
+  {
+    "img": "fruits/pear.svg",
+    "en": "Pear",
+    "id": "Pir"
+  },
+  {
+    "img": "fruits/grapes.svg",
+    "en": "Grapes",
+    "id": "Anggur"
+  },
+  {
+    "img": "fruits/peach.svg",
+    "en": "Peach",
+    "id": "Persik"
+  },
+  {
+    "img": "fruits/papaya.svg",
+    "en": "Papaya",
+    "id": "Pepaya"
+  },
+  {
+    "img": "fruits/mango.svg",
+    "en": "Mango",
+    "id": "Mangga"
+  },
+  {
+    "img": "fruits/guava.svg",
+    "en": "Guava",
+    "id": "Jambu"
+  },
+  {
+    "img": "fruits/coconut.svg",
+    "en": "Coconut",
+    "id": "Kelapa"
+  },
+  {
+    "img": "fruits/fruits.svg",
+    "en": "Fruits",
+    "id": "Buah-buahan"
+  },
+  {
+    "img": "fruits/dragon-fruit.svg",
+    "en": "Dragon fruit",
+    "id": "Buah naga"
+  }
+]
