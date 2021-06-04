@@ -3,16 +3,23 @@ module.exports = {
   env: {
     browser: true,
     node: true,
+    jest: true,
+  },
+  globals: {
+    $nuxt: true,
   },
   parserOptions: {
     parser: 'babel-eslint',
   },
   extends: [
-    '@nuxtjs',
+    'plugin:vue/recommended',
+    'eslint:recommended',
+    'prettier/vue',
     'plugin:prettier/recommended',
-    'plugin:nuxt/recommended',
   ],
-  plugins: [],
+  plugins: ['prettier'],
   // add your custom rules here
-  rules: {},
-}
+  rules: {
+    'nuxt/no-cjs-in-config': 'off',
+  },
+};
