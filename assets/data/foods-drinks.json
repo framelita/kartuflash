@@ -1,0 +1,132 @@
+[
+  {
+    "img": "foods-drinks/beef.svg",
+    "en": "beef",
+    "id": "daging sapi"
+  },
+  {
+    "img": "foods-drinks/beer.svg",
+    "en": "beer",
+    "id": "bir"
+  },
+  {
+    "img": "foods-drinks/bread.svg",
+    "en": "bread",
+    "id": "roti"
+  },
+  {
+    "img": "foods-drinks/cake.svg",
+    "en": "cake",
+    "id": "kue"
+  },
+  {
+    "img": "foods-drinks/candy.svg",
+    "en": "candy",
+    "id": "permen"
+  },
+  {
+    "img": "foods-drinks/chicken.svg",
+    "en": "chicken",
+    "id": "daging ayam"
+  },
+  {
+    "img": "foods-drinks/chocolate.svg",
+    "en": "chocolate",
+    "id": "cokelat"
+  },
+  {
+    "img": "foods-drinks/cinnamon.svg",
+    "en": "cinnamon",
+    "id": "kayu manis"
+  },
+  {
+    "img": "foods-drinks/coffee.svg",
+    "en": "coffee",
+    "id": "kopi"
+  },
+  {
+    "img": "foods-drinks/fish.svg",
+    "en": "fish",
+    "id": "ikan"
+  },
+  {
+    "img": "foods-drinks/fried-rice.svg",
+    "en": "fried rice",
+    "id": "nasi goren"
+  },
+  {
+    "img": "foods-drinks/fries.svg",
+    "en": "fries",
+    "id": "kentang goren"
+  },
+  {
+    "img": "foods-drinks/ginger.svg",
+    "en": "ginger",
+    "id": "jahe"
+  },
+  {
+    "img": "foods-drinks/honey.svg",
+    "en": "honey",
+    "id": "madu"
+  },
+  {
+    "img": "foods-drinks/ice-tea.svg",
+    "en": "ice tea",
+    "id": "es teh"
+  },
+  {
+    "img": "foods-drinks/lamb.svg",
+    "en": "lamb",
+    "id": "daging kambing"
+  },
+  {
+    "img": "foods-drinks/meat.svg",
+    "en": "meat",
+    "id": "daging"
+  },
+  {
+    "img": "foods-drinks/milk.svg",
+    "en": "milk",
+    "id": "susu"
+  },
+  {
+    "img": "foods-drinks/noodle.svg",
+    "en": "noodle",
+    "id": "mie"
+  },
+  {
+    "img": "foods-drinks/no-sugar.svg",
+    "en": "unsweetened tea",
+    "id": "teh tawar"
+  },
+  {
+    "img": "foods-drinks/orange-juice.svg",
+    "en": "orange juice",
+    "id": "es jeruk"
+  },
+  {
+    "img": "foods-drinks/pork.svg",
+    "en": "pork",
+    "id": "daging babi"
+  },
+  {
+    "img": "foods-drinks/satay.svg",
+    "en": "satay",
+    "id": "sate"
+  },
+  {
+    "img": "foods-drinks/sausage.svg",
+    "en": "sausage",
+    "id": "sosis"
+  },
+  {
+    "img": "foods-drinks/sugar.svg",
+    "en": "sugar",
+    "id": "gula"
+  },
+  {
+    "img": "foods-drinks/wine.svg",
+    "en": "wine",
+    "id": "anggur"
+  }
+]
