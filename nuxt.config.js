@@ -14,10 +14,14 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+    './assets/icomoon/style.scss',
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    { src: '~/assets/plugins/main.js' },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -27,6 +31,14 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
   ],
+
+  styleResources: {
+    scss: [
+      // only include variables! do not include actual styles.
+      // if you want to include actual styles, do it in css
+      '~/assets/icomoon/variables.scss',
+    ],
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [

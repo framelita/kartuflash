@@ -1,29 +1,47 @@
 <template lang="pug">
 .playing-cards
-  .playing-cards__container(v-if="hasBeenShuffled")
-    Card(
-      v-for="(card, index) in allCards"
-      :src="require('@/assets/images/' + card.img)"
-      :en="card.en"
-      :id="card.id"
-      :is-active="index === activeIndex"
-      :is-previous="index === previousIndex"
-      :is-next="index === nextIndex"
+  img.playing-cards__preloader(
+    v-if="isLoading"
+    src="@/assets/images/preloader.svg"
+  )
+  template(v-else)
+    .playing-cards__container(
+      v-if="hasBeenShuffled"
     )
-  .playing-cards__buttons
-    button(
-      type="button"
-      @click="goToPreviousCard"
-    ) Previous card
-    button(
-      type="button"
-      @click="goToNextCard"
-    ) Next card
+      Card(
+        v-for="(card, index) in allCards"
+        :key="card.en"
+        :src="require('@/assets/images/' + card.img)"
+        :en="card.en"
+        :id="card.id"
+        :is-active="index === activeIndex"
+        :is-previous="index === previousIndex"
+        :is-next="index === nextIndex"
+        @next-card="goToNextCard"
+        @previous-card="goToPreviousCard"
+      )
+    .playing-cards__buttons
+      button.btn.btn-shuffle(
+        type="button"
+        title="Shuffle cards"
+        @click="reshuffleCards"
+      )
+        i.icon.icon-shuffle
+      button.btn(
+        type="button"
+        title="Previous card"
+        @click="goToPreviousCard"
+      )
+        i.icon.icon-chevron-left
+      button.btn(
+        type="button"
+        title="Next card"
+        @click="goToNextCard"
+      )
+        i.icon.icon-chevron-right
 </template>
 
 <script>
-import Fruits from '@/assets/data/fruits.json';
-
 export default {
   data() {
     return {
@@ -34,6 +52,10 @@ export default {
         x: 0,
       },
     };
+  },
+  props: {
+    categories: { type: Array, default: () => [] },
+    isLoading: { type: Boolean, default: false },
   },
   computed: {
     previousIndex() {
@@ -46,15 +68,33 @@ export default {
       if (index >= this.allCards.length) index = 0;
       return index;
     },
+    activeCategories() {
+      return this.categories.filter(cat => cat.isActive);
+    },
   },
   mounted() {
-    this.combineCards();
+    this.combineActiveCards();
     this.shuffleCards();
-    console.log(this.allCards, Fruits);
+  },
+  watch: {
+    isLoading(val) {
+      if (!val) this.reshuffleCards();
+    },
   },
   methods: {
-    combineCards() {
-      this.allCards = [...Fruits];
+    touchHandler() {
+      console.log('touch')
+    },
+    combineActiveCards() {
+      console.log('activeCategories', this.activeCategories.length)
+      const cards = this.activeCategories.reduce((arr, category) => {
+        if (category && category.cards) {
+          arr = arr.concat(category.cards);
+        }
+        console.log('arr', arr.length)
+        return arr;
+      }, []);
+      this.allCards = cards;
     },
     shuffleCards() {
       for (let i = this.allCards.length - 1; i > 0; i--) {
@@ -100,6 +140,10 @@ export default {
   flex-direction: column;
 }
 
+.playing-cards__preloader {
+  width: 64px;
+}
+
 .playing-cards__container {
   width: 100%;
   height: 400px;
@@ -109,7 +153,10 @@ export default {
 
 .playing-cards__buttons {
   button {
-    padding: 10px 20px;
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    font-size: 1.25rem;
     margin: 0 5px;
     cursor: pointer;
   }

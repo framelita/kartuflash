@@ -2,17 +2,19 @@
 button.card(
   type="button"
   :class="cssClass"
-  @click="flipCard"
+  v-touch:tap="flipCard"
+  v-touch:swipe.left="goToNextCard"
+  v-touch:swipe.right="goToPreviousCard"
 )
   .card__front
     .card__image(v-if="src")
       img(:src="src")
-    .card__en {{ en }}
+    .card__main {{ en }}
   .card__back
     .card__image(v-if="src")
       img(:src="src")
-    .card__id {{ id }}
-    .card__en {{ en }}
+    .card__main {{ id }}
+    .card__secondary {{ en }}
 </template>
 
 <script>
@@ -54,6 +56,14 @@ export default {
       console.log('flip')
       this.isFlipped = !this.isFlipped;
     },
+    goToPreviousCard() {
+      console.log('goToPreviousCard')
+      this.$emit('previous-card');
+    },
+    goToNextCard() {
+      console.log('goToNextCard')
+      this.$emit('next-card');
+    },
   },
 };
 </script>
@@ -78,6 +88,7 @@ export default {
   top: 0;
   bottom: 0;
   margin: auto;
+  user-select: none;
 
   &:not(.is-previous):not(.is-next):not(.is-active) {
     display: none;
@@ -117,23 +128,19 @@ export default {
   transform: rotateY(180deg);
 }
 
-.card__front {
-  .card__en {
-    font-size: 2.5em;
-    font-weight: bold;
-  }
+.card__main {
+  font-size: 2.5em;
+  font-weight: bold;
 }
 
-.card__back {
-  .card__id {
-    font-size: 2.5em;
-    font-weight: bold;
-  }
+.card__secondary {
+  margin-top: 0.25em;
+  font-size: 1.5em;
+}
 
-  .card__en {
-    margin-top: 0.25em;
-    font-size: 1.5em;
-  }
+.card__main,
+.card__secondary {
+  text-transform: capitalize;
 }
 
 .card__image {
