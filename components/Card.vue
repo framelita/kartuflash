@@ -129,7 +129,7 @@ export default {
 }
 
 .card__main {
-  font-size: 2.5em;
+  font-size: 2.25em;
   font-weight: bold;
 }
 

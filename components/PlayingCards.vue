@@ -73,12 +73,13 @@ export default {
     },
   },
   mounted() {
-    this.combineActiveCards();
-    this.shuffleCards();
+    this.combineAndShuffle();
   },
   watch: {
     isLoading(val) {
-      if (!val) this.reshuffleCards();
+      if (!val) {
+        this.combineAndShuffle();
+      }
     },
   },
   methods: {
@@ -102,6 +103,10 @@ export default {
         [this.allCards[i], this.allCards[j]] = [this.allCards[j], this.allCards[i]];
       }
       this.hasBeenShuffled = true;
+    },
+    combineAndShuffle() {
+      this.combineActiveCards();
+      this.shuffleCards();
     },
     reshuffleCards() {
       this.hasBeenShuffled = false;
