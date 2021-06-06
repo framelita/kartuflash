@@ -48,8 +48,14 @@ export default {
       return this.isActive ? 'icon-close' : 'icon-settings';
     },
   },
-  mounted() {
-    this.temporaryCategories = [...this.categories];
+  watch: {
+    isActive(val) {
+      console.log('val', val, this.temporaryCategories[0] && this.temporaryCategories[0].isActive, this.categories[0] && this.categories[0].isActive)
+      // every time user open the settings, get the right value
+      if (val) {
+        this.copyCategories();
+      }
+    },
   },
   methods: {
     toggleSettings() {
@@ -60,6 +66,9 @@ export default {
     },
     saveSettings() {
       this.$emit('update-category', this.temporaryCategories);
+    },
+    copyCategories() {
+      this.temporaryCategories = JSON.parse(JSON.stringify(this.categories));
     },
   },
 };
