@@ -39,10 +39,25 @@
         @click="goToNextCard"
       )
         i.icon.icon-chevron-right
+      button.btn(
+        type="button"
+        title="Play audio"
+        @click="playAudio"
+      )
+        i.icon.icon-volume
+    audio(
+      ref="audio"
+      :src="audioUrl"
+      controls
+    )
 </template>
 
 <script>
 export default {
+  props: {
+    categories: { type: Array, default: () => [] },
+    isLoading: { type: Boolean, default: false },
+  },
   data() {
     return {
       allCards: [],
@@ -52,10 +67,6 @@ export default {
         x: 0,
       },
     };
-  },
-  props: {
-    categories: { type: Array, default: () => [] },
-    isLoading: { type: Boolean, default: false },
   },
   computed: {
     previousIndex() {
@@ -71,9 +82,18 @@ export default {
     activeCategories() {
       return this.categories.filter(cat => cat.isActive);
     },
-  },
-  mounted() {
-    this.combineAndShuffle();
+    activeCard() {
+      return this.allCards[this.activeIndex];
+    },
+    audioUrl() {
+      if (!this.activeCard) return '';
+      const lang = 'id';
+      const text = this.activeCard[lang];
+      console.log('text is', text)
+      const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&client=tw-ob&q=${text.replace(/ /g,'+').replace(/[.]/g,'')}&api_key=AIzaSyDpR2y8fQ3CqegL_UZgkBFsJB4m0vEB29M`;
+
+      return url;
+    },
   },
   watch: {
     isLoading(val) {
@@ -81,6 +101,9 @@ export default {
         this.combineAndShuffle();
       }
     },
+  },
+  mounted() {
+    this.combineAndShuffle();
   },
   methods: {
     touchHandler() {
@@ -125,7 +148,10 @@ export default {
     checkDragging(event) {
       const distance = event.detail.x - this.swipePosition.x;
       console.log('checkDragging', event.detail, distance);
-    }
+    },
+    playAudio() {
+      this.$refs.audio.play();
+    },
   },
 };
 </script>
