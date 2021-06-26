@@ -48,7 +48,6 @@
     audio(
       ref="audio"
       :src="audioUrl"
-      controls
     )
 </template>
 
