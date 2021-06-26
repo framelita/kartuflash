@@ -89,8 +89,7 @@ export default {
       if (!this.activeCard) return '';
       const lang = 'id';
       const text = this.activeCard[lang];
-      console.log('text is', text)
-      const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&client=tw-ob&q=${text.replace(/ /g,'+').replace(/[.]/g,'')}&api_key=AIzaSyDpR2y8fQ3CqegL_UZgkBFsJB4m0vEB29M`;
+      const url = `https://heybenjam.in/api/${lang}/${text.replace(/ /g,'+').replace(/[.]/g,'')}`;
 
       return url;
     },
